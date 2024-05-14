@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Global Currency Convert</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Amount</ion-label>
+    <ion-input [(ngModel)]="amount" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>From</ion-label>
+    <ion-select [(ngModel)]="fromCurrency">
+      <ion-select-option *ngFor="let currency of rates | keyvalue" [value]="currency.key">
+        {{ currency.key }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>To</ion-label>
+    <ion-select [(ngModel)]="toCurrency">
+      <ion-select-option *ngFor="let currency of rates | keyvalue" [value]="currency.key">
+        {{ currency.key }}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="full" (click)="convertCurrency()">Convert</ion-button>
+  <div *ngIf="convertedAmount">
+    <h2>Converted Amount: {{ convertedAmount | number:'1.2-2' }}</h2>
+  </div>
+</ion-content>

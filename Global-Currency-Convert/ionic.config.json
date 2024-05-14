@@ -1,0 +1,7 @@
+{
+  "name": "Global-Currency-Convert",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
